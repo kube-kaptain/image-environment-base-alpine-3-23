@@ -19,6 +19,7 @@ LABEL base.docker.image.name="${DockerImageName}"
 RUN apk update
 RUN apk upgrade
 RUN apk add \
+    age \
     bind-tools \
     ca-certificates \
     curl \
