@@ -20,6 +20,7 @@ RUN apk update
 RUN apk upgrade
 RUN apk add \
     age \
+    bash \
     bind-tools \
     ca-certificates \
     curl \
