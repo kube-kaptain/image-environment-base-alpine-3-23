@@ -25,8 +25,10 @@ RUN apk add \
     curl \
     iputils \
     netcat-openbsd \
+    openssl \
     procps \
     time \
+    which \
     --no-cache
 
 # Install kubectl
