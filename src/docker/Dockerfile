@@ -53,9 +53,10 @@ RUN tar xzf /tmp/age.tar.gz -C /usr/local/bin --strip-components=1 age/age age/a
 RUN rm /tmp/age.tar.gz
 
 # Create deployment user
+ENV KAPTAIN_USER_ID=4242
 RUN mkdir -p /home/kaptain
-RUN addgroup -g 4242 kaptain
-RUN adduser -u 4242 -G kaptain -h /home/kaptain -s /bin/sh -D kaptain
+RUN addgroup -g ${KAPTAIN_USER_ID} kaptain
+RUN adduser -u ${KAPTAIN_USER_ID} -G kaptain -h /home/kaptain -s /bin/sh -D kaptain
 RUN chown kaptain:kaptain /home/kaptain
 
 # Create directory structure for deployment needs
