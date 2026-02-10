@@ -60,17 +60,17 @@ RUN adduser -u ${KAPTAIN_USER_ID} -G kaptain -h /home/kaptain -s /bin/sh -D kapt
 RUN chown kaptain:kaptain /home/kaptain
 
 # Create directory structure for deployment needs
-RUN mkdir -p /run/bin        # Deployment scripts
-RUN mkdir -p /run/manifests  # Env declaration manifests
-RUN mkdir -p /run/secrets    # Encrypted secret values
-RUN mkdir -p /run/work       # Working dir for processing, logging, etc
+RUN mkdir -p /kd/bin        # Deployment scripts
+RUN mkdir -p /kd/manifests  # Env declaration manifests
+RUN mkdir -p /kd/secrets    # Encrypted secret values
+RUN mkdir -p /kd/work       # Working dir for processing, logging, etc
 
 # Put the deploy scripts on the path so we can run them naturally
-ENV PATH="/run/bin:${PATH}"
+ENV PATH="/kd/bin:${PATH}"
 
 # Make the working dir writeable and set it as the workdir
-RUN chown kaptain:kaptain /run/work
-WORKDIR /run/work
+RUN chown kaptain:kaptain /kd/work
+WORKDIR /kd/work
 
 ENV ENVIRONMENT="NOT_SET"
 ENV PS1="\u@\h:\w \${ENVIRONMENT}\\$ "
